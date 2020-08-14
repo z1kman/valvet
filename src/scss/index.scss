@@ -1,0 +1,250 @@
+@font-face {
+    font-family: 'Gotham Pro'; 
+    src: url(../fonts/GothamPro.ttf); 
+}
+@font-face {
+    font-family: 'Gotham Pro Medium Italic';
+    src: url(../fonts/GothamProMediumItalic.ttf); 
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Gotham Pro';
+    text-transform: uppercase;
+    font-size: 0.75em;
+    display: grid;
+
+    grid-template-columns: repeat(4,23.2vw);
+    justify-content: center;
+    grid-column-gap: 20px;
+    grid-template-areas: 
+                    'Menu   .         .         Label'
+                    '.      Container Container Container'
+                    'Footer Footer    Footer    Footer';
+}
+.Fixed-Header-Mobile{
+    position: fixed;
+    min-height: 50px;
+    height: 6vw;
+    background-color: white;
+    width: 100%;
+    grid-area: MobileHeader;
+    grid-column-gap: 20px;
+    display: none;
+    justify-content: center;
+    grid-template-columns: repeat(3,29vw);
+    grid-template-areas: 
+                    'MenuMobile . LabelMobile';
+
+
+}
+.Menu-ico{
+    width: 25px;
+    margin-top: 1.9vh;
+    grid-area: MenuMobile;
+}
+.Fixed-Header{
+    position: sticky;
+    top: 7.1vh;
+    width: 100%;
+}
+.Menu-Mobile{
+    width: 67%;
+    height: 100%;
+    background: rgba(247, 247, 247, 0.85);
+    backdrop-filter: blur(14px);
+    position: fixed;
+    z-index: 5; 
+    
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2,29vw);
+    grid-template-areas: 
+    'Exit       . .'
+    'MenuMob    . .'
+    'LabelMob   . .';
+    visibility: hidden;
+}
+.Menu-Exit{
+    grid-area: Exit;
+}
+.Menu__List-Item{
+    margin-top: 8.42vh;
+    grid-area: MenuMob;
+}
+.Menu-Mobile__Footer{
+    position: absolute;
+    bottom: 4vh;
+    grid-area: LabelMob;
+}
+.Header-Menu{
+    width: 316px;
+    height: 308px;
+    position: absolute;
+    grid-area: Menu;
+}
+.Header-Menu__Back-Link{
+    margin-bottom: 11.5vh;
+    font-family: 'Gotham Pro Medium Italic';
+    opacity: 0.3;
+}
+.Header-Menu__Label{
+    font-family: 'Gotham Pro Medium Italic';
+    font-size: 3.5em;
+    cursor: default;
+    line-height: 42px;
+}
+.Header-Menu__List-Item, .Menu__List-Item{
+    list-style-type: none;
+    padding: 0px;
+    line-height: 42px;
+}
+.Header-Menu__Link-Item, .Footer__Link-Item, .Menu__Link-Item{
+    text-decoration: none;
+    color: black;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+.Header-Label{
+    margin-left: auto;
+    position: sticky;
+    top: 7.1vh;
+    grid-area: Label;
+}
+.Header-Label-Mobile{
+    margin-top: 1.9vh;
+    margin-left: auto;
+    grid-area: LabelMobile;
+}
+.Header-Label__Label-Item{
+    width:101.71px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.Header-Label__Label-Desc{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 88.41px;
+}
+img{
+    width: 100%;
+}
+.Container{
+    grid-area: Container;
+    display: grid;
+    grid-template-columns: repeat(3,23.2vw);
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 17.5vh;
+    margin-right: 3vh;
+    grid-column-gap: 20px;
+    grid-row-gap: 40px;
+}
+.Name{
+    margin-top: 20px;
+}
+.Name__First-Name{
+    cursor: default;
+    font-family: 'Gotham Pro Medium Italic';
+}
+.Name__Last-Name{
+    cursor: default;
+    font-style: italic;
+}
+
+.Menu-Mobile__Label{
+    margin-bottom: 25px;
+    cursor: default;
+}
+.Footer{
+    grid-area: Footer;
+    margin-top: 17.5vh;
+    margin-bottom: 7.1vh; 
+    display: flex;
+}
+.Footer__Language, .Menu-Mobile__Language{
+    cursor: default;
+}
+.Footer__Label{ 
+    margin-left: 52px;
+    cursor: default;
+}
+.Footer__Left-Side{
+    display: flex; 
+    flex-grow: 1;
+}
+.Footer__Right-Side{
+    display: flex;
+    flex-grow: 5;
+    justify-content: flex-end;
+}
+.Footer__Menu{
+    margin: 0px;
+    list-style-type: none;
+    padding: 0px;
+}
+.Footer__Menu-Item{
+    margin-left: 40px;
+    display: inline;
+}
+.Active{
+    font-weight: bold;
+}
+.Active_Link{
+    font-family: 'Gotham Pro Medium Italic';
+    font-size: 42px;
+    &:hover{
+        text-decoration: none;
+    }
+}
+.Enabled{
+    opacity: 0.3;
+}
+.Line{
+    display: none;
+    height: 1.5vh;
+    width: 100%;
+    grid-area: Line;
+    margin-top: 60px;
+}
+@media screen and (max-width: 1080px), (orientation: portrait){
+    body{
+        grid-template-columns: repeat(3,29vw);
+        grid-template-areas: 
+                        'MobileHeader   MobileHeader         MobileHeader'
+                        'Container      Container            Container'
+                        'Line           Line                 Line   '
+                        'Footer         Footer               Footer';
+    }
+    .Fixed-Header-Mobile{
+        display: grid;
+    }
+    .Header-Label{
+        display: none;
+    }
+    .Container{
+        margin-top: 12vw;
+        grid-template-columns: repeat(3,29vw);
+    }
+    .Fixed-Header{
+        display: none;
+    }
+    .Footer{
+        margin-top: 4vh;
+        margin-bottom: 4vh; 
+    }
+    .line{
+        display: block;
+    }
+    .Footer__Label{ 
+        margin-left: 26vw;
+    }
+    .Footer__Right-Side{
+        display: none;
+    }
+}
