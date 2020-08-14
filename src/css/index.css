@@ -203,6 +203,7 @@ img {
 }
 
 .Footer__Label {
+  display: inline;
   margin-left: 52px;
   cursor: default;
 }
