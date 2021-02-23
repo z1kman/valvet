@@ -1,13 +1,14 @@
 @font-face {
-    font-family: 'Gotham Pro'; 
-    src: url(../fonts/GothamPro.ttf); 
-}
-@font-face {
-    font-family: 'Gotham Pro Medium Italic';
-    src: url(../fonts/GothamProMediumItalic.ttf); 
+    font-family: 'Gotham Pro';
+    src: url(../fonts/GothamPro.ttf);
 }
 
-body{
+@font-face {
+    font-family: 'Gotham Pro Medium Italic';
+    src: url(../fonts/GothamProMediumItalic.ttf);
+}
+
+body {
     margin: 0px;
     padding: 0px;
     font-family: 'Gotham Pro';
@@ -15,129 +16,152 @@ body{
     font-size: 0.75em;
     display: grid;
 
-    grid-template-columns: repeat(4,23.2vw);
+    grid-template-columns: repeat(4, 23.2vw);
     justify-content: center;
     grid-column-gap: 20px;
-    grid-template-areas: 
-                    'Menu   .         .         Label'
-                    '.      Container Container Container'
-                    'Footer Footer    Footer    Footer';
+    grid-template-areas:
+        'Menu   .         .         Label'
+        '.      Container Container Container'
+        'Footer Footer    Footer    Footer';
 }
-.Fixed-Header-Mobile{
+
+.Fixed-Header-Mobile {
     position: fixed;
     min-height: 90px;
-    height: 6vw;
     background-color: white;
     width: 100%;
     grid-area: MobileHeader;
     grid-column-gap: 20px;
     display: none;
     justify-content: center;
-    grid-template-columns: repeat(3,29vw);
-    grid-template-areas: 
-                    'MenuMobile . LabelMobile';
+    grid-template-columns: repeat(3, 29vw);
+    grid-template-areas:
+        'MenuMobile . LabelMobile';
 
 
 }
-.Menu-ico{
+
+.Menu-ico {
     width: 25px;
-    margin-top: 1.9vh;
+    margin-top: auto;
+    margin-bottom: auto;
     grid-area: MenuMobile;
 }
-.Fixed-Header{
+
+.Fixed-Header {
     position: sticky;
     top: 7.1vh;
     width: 100%;
 }
-.Menu-Mobile{
+
+.Menu-Mobile {
     width: 67%;
     height: 100%;
     background: rgba(247, 247, 247, 0.85);
     backdrop-filter: blur(14px);
     position: fixed;
-    z-index: 5; 
-    
+    z-index: 5;
+
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(2,29vw);
-    grid-template-areas: 
-    'Exit       . .'
-    'MenuMob    . .'
-    'LabelMob   . .';
+    grid-template-columns: repeat(2, 29vw);
+    grid-template-areas:
+        'Exit       . .'
+        'MenuMob    . .'
+        'LabelMob   . .';
     visibility: hidden;
     grid-template-rows: 1fr 5fr 2fr;
 }
-.Menu-Exit{
+
+.Menu-Exit {
     grid-area: Exit;
 }
-.Menu__List-Item{
+
+.Menu__List-Item {
     grid-area: MenuMob;
 }
-.Menu-Mobile__Footer{
+
+.Menu-Mobile__Footer {
     position: absolute;
     bottom: 4vh;
     grid-area: LabelMob;
 }
-.Header-Menu{
+
+.Header-Menu {
     width: 316px;
     height: 308px;
     position: absolute;
     grid-area: Menu;
 }
-.Header-Menu__Back-Link{
+
+.Header-Menu__Back-Link {
     margin-bottom: 11.5vh;
     font-family: 'Gotham Pro Medium Italic';
     opacity: 0.3;
 }
-.Header-Menu__Label{
+
+.Header-Menu__Label {
     font-family: 'Gotham Pro Medium Italic';
     font-size: 3.5em;
     cursor: default;
     line-height: 42px;
 }
-.Header-Menu__List-Item, .Menu__List-Item{
+
+.Header-Menu__List-Item,
+.Menu__List-Item {
     list-style-type: none;
     padding: 0px;
     line-height: 42px;
 }
-.Header-Menu__Link-Item, .Footer__Link-Item, .Menu__Link-Item{
+
+.Header-Menu__Link-Item,
+.Footer__Link-Item,
+.Menu__Link-Item {
     text-decoration: none;
     color: black;
-    &:hover{
+
+    &:hover {
         text-decoration: underline;
     }
 }
-.Header-Label{
+
+.Header-Label {
     margin-left: auto;
     position: sticky;
     top: 7.1vh;
     grid-area: Label;
 }
-.Header-Label-Mobile{
-    margin-top: 1.9vh;
+
+.Header-Label-Mobile {
+    margin-top: auto;
+    margin-bottom: auto;
     margin-left: auto;
     grid-area: LabelMobile;
 }
-.Header-Label__Label-Item{
-    width:101.71px;
+
+.Header-Label__Label-Item {
+    width: 101.71px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
+
 }
-.Header-Label__Label-Desc{
+
+.Header-Label__Label-Desc {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 88.41px;
 }
-img{
+
+img {
     width: 100%;
 }
-.Container{
+
+.Container {
     grid-area: Container;
     display: grid;
-    grid-template-columns: repeat(3,23.2vw);
+    grid-template-columns: repeat(3, 23.2vw);
     list-style-type: none;
     padding: 0px;
     margin-top: 17.5vh;
@@ -145,107 +169,133 @@ img{
     grid-column-gap: 20px;
     grid-row-gap: 40px;
 }
-.Name{
+
+.Name {
     margin-top: 20px;
 }
-.Name__First-Name{
+
+.Name__First-Name {
     cursor: default;
     font-family: 'Gotham Pro Medium Italic';
 }
-.Name__Last-Name{
+
+.Name__Last-Name {
     cursor: default;
     font-style: italic;
 }
 
-.Menu-Mobile__Label{
+.Menu-Mobile__Label {
     margin-bottom: 25px;
     cursor: default;
 }
-.Footer{
+
+.Footer {
     grid-area: Footer;
     margin-top: 17.5vh;
-    margin-bottom: 7.1vh; 
+    margin-bottom: 7.1vh;
     display: flex;
 }
-.Footer__Language, .Menu-Mobile__Language{
+
+.Footer__Language,
+.Menu-Mobile__Language {
     cursor: default;
 }
-.Footer__Label{ 
+
+.Footer__Label {
     display: inline;
     margin-left: 52px;
     cursor: default;
 }
-.Footer__Left-Side{
-    display: flex; 
+
+.Footer__Left-Side {
+    display: flex;
     flex-grow: 1;
 }
-.Footer__Right-Side{
+
+.Footer__Right-Side {
     display: flex;
     flex-grow: 5;
     justify-content: flex-end;
 }
-.Footer__Menu{
+
+.Footer__Menu {
     margin: 0px;
     list-style-type: none;
     padding: 0px;
 }
-.Footer__Menu-Item{
+
+.Footer__Menu-Item {
     margin-left: 40px;
     display: inline;
 }
-.Active{
+
+.Active {
     font-weight: bold;
 }
-.Active_Link{
+
+.Active_Link {
     font-family: 'Gotham Pro Medium Italic';
     font-size: 42px;
-    &:hover{
+
+    &:hover {
         text-decoration: none;
     }
 }
-.Enabled{
+
+.Enabled {
     opacity: 0.3;
 }
-.Line{
+
+.Line {
     display: none;
     height: 1.5vh;
     width: 100%;
     grid-area: Line;
     margin-top: 60px;
 }
-@media screen and (max-width: 1080px), (orientation: portrait){
-    body{
-        grid-template-columns: repeat(3,29vw);
-        grid-template-areas: 
-                        'MobileHeader   MobileHeader         MobileHeader'
-                        'Container      Container            Container'
-                        'Line           Line                 Line   '
-                        'Footer         Footer               Footer';
+
+@media screen and (max-width: 1080px),
+(orientation: portrait) {
+    body {
+        grid-template-columns: repeat(3, 29vw);
+        grid-template-areas:
+            'MobileHeader   MobileHeader         MobileHeader'
+            'Container      Container            Container'
+            'Line           Line                 Line   '
+            'Footer         Footer               Footer';
     }
-    .Fixed-Header-Mobile{
+
+    .Fixed-Header-Mobile {
         display: grid;
     }
-    .Header-Label{
+
+    .Header-Label {
         display: none;
     }
-    .Container{
+
+    .Container {
         margin-top: 12vw;
-        grid-template-columns: repeat(3,29vw);
+        grid-template-columns: repeat(3, 29vw);
     }
-    .Fixed-Header{
+
+    .Fixed-Header {
         display: none;
     }
-    .Footer{
+
+    .Footer {
         margin-top: 4vh;
-        margin-bottom: 4vh; 
+        margin-bottom: 4vh;
     }
-    .line{
+
+    .line {
         display: block;
     }
-    .Footer__Label{ 
+
+    .Footer__Label {
         margin-left: 26vw;
     }
-    .Footer__Right-Side{
+
+    .Footer__Right-Side {
         display: none;
     }
 }
