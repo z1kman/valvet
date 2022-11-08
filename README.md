@@ -1,2 +1,2 @@
 # valvetmanagement.github.io
-верстка
+Go to: https://z1kman.github.io/valvet/
