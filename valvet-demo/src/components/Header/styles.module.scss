@@ -1,0 +1,18 @@
+.Header {
+  position: sticky;
+  top: 7.1vh;
+  width: 100%;
+
+  &_display_false {
+    display: none;
+  }
+}
+
+.Header-Menu {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  width: 316px;
+  height: 308px;
+  position: absolute;
+  grid-area: Menu;
+}
