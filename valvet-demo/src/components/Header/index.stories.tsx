@@ -1,16 +1,16 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import documentation from "./documentation.mdx";
 
-import { Logo } from "./index";
+import { Header } from "./index";
 
 export default {
-  title: "Logo",
-  component: Logo,
+  title: "Header",
+  component: Header,
   parameters: {
     docs: {
       page: documentation,
     },
   },
-} as ComponentMeta<typeof Logo>;
+} as ComponentMeta<typeof Header>;
 
-export const Default: ComponentStory<typeof Logo> = () => <Logo />;
+export const Default: ComponentStory<typeof Header> = () => <Header />;

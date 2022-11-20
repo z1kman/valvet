@@ -1,18 +1,23 @@
 .Header {
   position: sticky;
-  top: 7.1vh;
+  height: 90px;
   width: 100%;
-
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
   &_display_false {
     display: none;
   }
 }
-
-.Header-Menu {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  width: 316px;
-  height: 308px;
-  position: absolute;
-  grid-area: Menu;
+.Header__Logo {
+  display: flex;
+  justify-items: end;
+  align-items: flex-end;
 }
+
+// .Header-Menu {
+//   width: 316px;
+//   height: 308px;
+//   position: absolute;
+//   grid-area: Menu;
+// }
