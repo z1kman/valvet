@@ -1,22 +1,38 @@
 import styles from "./styles.module.scss";
-import velvetSvg from "../../svg/Velvet.svg";
-import managementSvg from "../../svg/Management.svg";
+import cn from "classnames";
 
 type Props = {
   label?: string;
   href?: string | undefined;
   italic?: boolean;
   color?: "primary" | "secondary";
+  size?: "s" | "m" | "l";
 };
 
-export function Link(
-  props: Props = { label: "", href: "#", italic: false, color: "primary" }
-) {
-  const { label, href, italic, color } = props;
+export function Link(props: Props) {
+  const { label, href, italic, color, size } = props;
 
   return (
-    <a href={href}>
+    <a
+      className={cn(
+        styles.Link,
+        styles[`Link_size_${size}`],
+        styles[`Link_color_${color}`],
+        {
+          [styles.Link_italic]: italic,
+        }
+      )}
+      href={href}
+    >
       {label}
     </a>
   );
 }
+
+Link.defaultProps = {
+  label: "",
+  href: "#",
+  italic: false,
+  color: "primary",
+  size: "m",
+};

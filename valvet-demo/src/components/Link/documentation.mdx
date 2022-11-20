@@ -1,10 +1,35 @@
 <!-- documentation.mdx -->
 
 import { Story, Canvas } from "@storybook/addon-docs";
+import { ArgsTable } from '@storybook/addon-docs';
+import { Link } from './index.tsx';
 
 # Link
 For everything that needs a link
 #### Use case:
+##### Default:
 <Canvas>
   <Story id="link--default" />
 </Canvas>
+
+##### Colors:
+<Canvas>
+  <Story id="link--color-primary" />
+  <Story id="link--color-secondary" />
+</Canvas>
+
+##### Sizes:
+<Canvas>
+  <Story id="link--size-s" />
+  <Story id="link--size-m" />
+  <Story id="link--size-l" />
+</Canvas>
+
+##### Types:
+<Canvas>
+  <Story id="link--default" />
+  <Story id="link--type-italic" />
+</Canvas>
+
+##### Props:
+<ArgsTable of={Link} />

@@ -10,12 +10,6 @@
     "standard-with-typescript"
   ],
   "overrides": [
-    {
-      "files": ["**/*.stories.*"],
-      "rules": {
-        "import/no-anonymous-default-export": "off"
-      }
-    }
   ],
   "parserOptions": {
     "ecmaVersion": "latest",

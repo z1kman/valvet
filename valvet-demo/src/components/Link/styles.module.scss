@@ -1,19 +1,35 @@
-.Logo {
-  display: inline-flex;
-  flex-direction: column;
-  width: 100px;
-  user-select: none;
-  pointer-events: none;
+@import "../../scss/variables.scss";
 
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-tap-highlight-color: transparent;
-  -ms-user-select: none;
-  -moz-user-select: none;
-}
+.Link {
+  text-transform: uppercase;
+  font-family: "Gotham Pro";
+  text-decoration: none;
 
-.Logo__Item {
-    &_second {
-        margin-top: 4px;
-    }
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &_color_primary {
+    color: $primaryTextColor;
+  }
+
+  &_color_secondary {
+    color: $secondaryTextColor;
+  }
+
+  &_italic {
+    font-family: "Gotham Pro Medium Italic";
+  }
+
+  &_size_s {
+    font-size: $fontSizeS;
+  }
+
+  &_size_m {
+    font-size: $fontSizeM;
+  }
+
+  &_size_l {
+    font-size: $fontSizeL;
+  }
 }
