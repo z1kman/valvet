@@ -1,0 +1,38 @@
+@import "../../scss/variables.scss";
+
+.LinksMenu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  &_direction_column {
+    flex-direction: column;
+  }
+  
+  &_direction_row {
+    flex-direction: row;
+  }
+}
+
+.LinksMenu__Item {
+  &_direction_column {
+    padding: 10px 0;
+  }
+
+  &_direction_row {
+    padding: 0 10px;
+
+    &:first-child {
+      padding: 0 10px 0 0;
+    } 
+    
+    &:last-child {
+      padding: 0 0 0 10px;
+    }
+
+    &:only-child {
+      padding: 0;
+    }
+  }
+}
