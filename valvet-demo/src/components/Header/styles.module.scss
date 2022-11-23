@@ -5,15 +5,18 @@
   display: flex;
   justify-content: space-between;
   padding: 0 5px;
+  align-items: flex-end;
+
   &_display_false {
     display: none;
   }
 }
-.Header__Logo {
+.Header__Items {
   display: flex;
-  justify-items: end;
-  align-items: flex-end;
+  width: 100%;
+  justify-content: space-between;
 }
+
 
 // .Header-Menu {
 //   width: 316px;
