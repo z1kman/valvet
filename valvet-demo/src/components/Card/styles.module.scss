@@ -1,0 +1,22 @@
+@import "../../scss/variables.scss";
+
+.Card__Image {
+  width: 200px;
+  height: 290px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.Card__Info {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+ 
+
+  p {
+    min-width: 100px;
+    display: inline-block;
+  }
+}

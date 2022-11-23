@@ -1,0 +1,30 @@
+.Skeleton {
+  background: linear-gradient(
+    45deg,
+    #dedede,
+    #f4f4f4,
+    #ffffff,
+    #f4f4f4,
+    #dedede,
+  );
+  background-size: 400% 400%;
+  animation: gradient 1.5s ease infinite;
+  width: 0px;
+  height: 0px;
+}
+
+.Skeleton__Wrapper {
+  opacity: 0;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
