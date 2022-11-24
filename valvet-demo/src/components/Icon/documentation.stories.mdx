@@ -1,0 +1,39 @@
+<!-- Badge.stories.mdx -->
+
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+
+import { Icon, IconsName } from "./index.tsx";
+
+<Meta title="Icon" component={Icon} />
+
+export const Template = (args) => <Icon {...args} />;
+
+# Icon
+
+For everything that needs a link
+
+#### Use case:
+
+##### Default:
+
+<Canvas>
+  <Story name="Default">
+    {IconsName.map((name) => (
+      <div
+        style={{
+          display: "inline-flex",
+          "flex-direction": "column",
+          padding: "5px",
+          width: "25px",
+        }}
+      >
+        <Icon name={name} />
+        <span style={{ "font-size": "10px" }}>{name}</span>
+      </div>
+    ))}
+  </Story>
+</Canvas>
+
+##### Props:
+
+<ArgsTable of={Icon} />

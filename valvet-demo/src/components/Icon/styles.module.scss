@@ -1,28 +1,5 @@
 @import "../../scss/variables.scss";
 
-.Card__Image {
-  width: 255px;
-  height: 365px;
-
-  img {
-    width: 100%;
-  }
-}
-
-.Card__Info {
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.Card__InfoItem {
-  font-size: $fontSizeS;
-  min-width: 100px;
-  display: inline-block;
-  font-style: italic;
-  text-transform: uppercase;
-  
-  &:nth-child(1) {
-    font-family: "Gotham Pro Medium Italic";
-  }
+.Icon {
+  width: 25px;
 }

@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
-import velvetSvg from "../../svg/Velvet.svg";
-import managementSvg from "../../svg/Management.svg";
+import velvetSvg from "../../svg/velvet.svg";
+import managementSvg from "../../svg/management.svg";
 
 export function Logo() {
   return (

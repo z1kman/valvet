@@ -1,52 +1,38 @@
-import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
-import cn from "classnames";
+import { useState, useEffect, useRef } from "react";
 
-// Component
-import { Skeleton } from "../Skeleton";
+export const IconsName = ["close", "menu"] as const;
+
+export type IconType = typeof IconsName[number];
 
 type Props = {
-  imgSrc: string;
-  firstName: string;
-  lastName: string;
+  name: IconType;
 };
 
-export function Card(props: Props) {
-  const { imgSrc, firstName, lastName } = props;
-
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
+export const Icon = ({ name }: Props) => {
+  const ImportedIconRef = useRef(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const image = new Image();
-    image.onload = () => setIsImageLoaded(true);
-    image.src = imgSrc;
-
-    return () => {
-      image.onload = null;
+    setLoading(true);
+    const importIcon = async () => {
+      try {
+        const { default: namedImport } = await import(
+          `../../svg/icons/${name}.svg`
+        );
+        ImportedIconRef.current = namedImport;
+      } catch (err) {
+        throw err;
+      } finally {
+        setLoading(false);
+      }
     };
-  }, []);
+    importIcon();
+  }, [name]);
 
-  return (
-    <>
-      <Skeleton loading={!isImageLoaded}>
-        <div className={styles.Card__Image}>
-          <img src={imgSrc} />
-        </div>
-      </Skeleton>
-      <div className={styles.Card__Info}>
-        <Skeleton loading={!isImageLoaded}>
-          <p className={styles.Card__InfoItem}>{firstName}</p>
-        </Skeleton>
-        <Skeleton loading={!isImageLoaded}>
-          <p className={styles.Card__InfoItem}>{lastName}</p>
-        </Skeleton>
-      </div>
-    </>
-  );
-}
+  if (!loading && ImportedIconRef.current) {
+    return <img className={styles.Icon} src={ImportedIconRef.current} alt={name} />;
+  }
 
-Card.defaultProps = {
-  imgSrc: "#",
-  firstName: "",
-  lastName: "",
+  return null;
 };
