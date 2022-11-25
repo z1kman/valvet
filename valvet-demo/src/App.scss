@@ -7,6 +7,12 @@
   src: url(../public/fonts/GothamProMediumItalic.ttf);
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 p {
   font-family: "Gotham Pro";
   padding: 0;
