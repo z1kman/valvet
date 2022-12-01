@@ -1,0 +1,9 @@
+@import "../../../../scss/variables.scss";
+
+.Sidebar {
+    width: 50%;
+    position: fixed;
+    top: 90px;
+    background-color: aquamarine;
+    height: calc(100vh - $headerHeight);
+}

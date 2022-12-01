@@ -1,11 +1,13 @@
-$primaryTextColor: #1A1A1A;
-$secondaryTextColor:#B3B3B3;
+$primaryTextColor: #1a1a1a;
+$secondaryTextColor: #b3b3b3;
 
 $fontSizeS: 12px;
 $fontSizeM: 14px;
 $fontSizeL: 16px;
 
-$screenWidthMobMin: '0px';
-$screenWidthMobMax: '700px';
-$screenWidthTabMin: '700px';
-$screenWidthTabMax: '1020px';
+$screenWidthMobMin: 0px;
+$screenWidthMobMax: 700px;
+$screenWidthTabMin: 700px;
+$screenWidthTabMax: 1020px;
+
+$headerHeight: 90px;

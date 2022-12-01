@@ -1,10 +1,12 @@
-import "./App.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react'
+
+import './App.scss'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // Routes
-import { Layout } from "./routes/Layout";
+import { Layout } from './routes/Layout'
 
-function App() {
+const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -13,7 +15,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

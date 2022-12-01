@@ -1,10 +1,10 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import documentation from "./documentation.mdx";
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import documentation from './documentation.mdx'
 
-import { Link } from "./index";
+import { Link } from './index'
 
 export default {
-  title: "Link",
+  title: 'Link',
   component: Link,
   parameters: {
     docs: {
@@ -12,47 +12,47 @@ export default {
     },
   },
   args: { ...Link.defaultProps },
-} as ComponentMeta<typeof Link>;
+} as ComponentMeta<typeof Link>
 
-const Template: ComponentStory<typeof Link> = (args) => <Link {...args} />;
+const Template: ComponentStory<typeof Link> = (args) => <Link {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
-  label: "Link",
-};
+  label: 'Link',
+}
 
-export const ColorPrimary = Template.bind({});
+export const ColorPrimary = Template.bind({})
 ColorPrimary.args = {
-  label: "Link",
-  color: 'primary'
-};
+  label: 'Link',
+  color: 'primary',
+}
 
-export const ColorSecondary = Template.bind({});
+export const ColorSecondary = Template.bind({})
 ColorSecondary.args = {
-  label: "Link",
-  color: 'secondary'
-};
+  label: 'Link',
+  color: 'secondary',
+}
 
-export const SizeS = Template.bind({});
+export const SizeS = Template.bind({})
 SizeS.args = {
-  label: "Link",
-  size: 's'
-};
+  label: 'Link',
+  size: 's',
+}
 
-export const SizeM = Template.bind({});
+export const SizeM = Template.bind({})
 SizeM.args = {
-  label: "Link",
-  size: 'm'
-};
+  label: 'Link',
+  size: 'm',
+}
 
-export const SizeL = Template.bind({});
+export const SizeL = Template.bind({})
 SizeL.args = {
-  label: "Link",
-  size: 'l'
-};
+  label: 'Link',
+  size: 'l',
+}
 
-export const TypeItalic = Template.bind({});
+export const TypeItalic = Template.bind({})
 TypeItalic.args = {
-  label: "Link",
-  italic: true
-};
+  label: 'Link',
+  italic: true,
+}

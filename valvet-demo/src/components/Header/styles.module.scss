@@ -1,11 +1,12 @@
-@import "../../scss/variables.scss";
+@import '../../scss/variables.scss';
 
 .Header {
   position: sticky;
-  height: 90px;
+  top: 0;
+  left: 0;
+  height: $headerHeight;
   width: calc(100% - 40px);
   display: flex;
-  justify-content: space-between;
   padding: 0 20px;
   align-items: flex-end;
 
@@ -16,7 +17,7 @@
 
 .Header__Items {
   display: flex;
-  width: 100%;
+  width: calc(100% - 40px);
   justify-content: space-between;
 }
 
@@ -25,8 +26,7 @@
     cursor: pointer;
     display: none;
     user-select: none;
-    
-  
+
     -webkit-user-select: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-tap-highlight-color: transparent;
@@ -34,7 +34,6 @@
     -moz-user-select: none;
   }
 }
-
 
 @media screen and (max-width: $screenWidthTabMax) {
   .Header {
