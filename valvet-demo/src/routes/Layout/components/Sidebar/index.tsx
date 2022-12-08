@@ -1,6 +1,49 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styles from './styles.module.scss'
 
-export const Sidebar: React.FC = () => {
-  return (<div className={styles.Sidebar}>dasd</div>)
+// Components
+import { Icon } from '../../../../components/Icon'
+import { LinksMenu, ItemType } from '../../../../components/LinksMenu'
+import { Copyright } from '../../../../components/Copyright'
+
+// Helpers
+import cn from 'classnames'
+
+interface Props {
+  open: boolean
+  handleChangeOpenSidebar: () => void
+}
+
+const LINK_ITEMS = [
+  { href: '#', label: 'News' },
+  { href: '#', label: 'Work' },
+  { href: '#', label: 'About' },
+  { href: '#', label: 'Contact' },
+] as ItemType[]
+
+export const Sidebar: FC<Props> = (props) => {
+  const { handleChangeOpenSidebar, open } = props
+  return (
+    <div className={cn(styles.Sidebar, { [styles.Sidebar_show]: open })}>
+      <div className={styles.Sidebar__Content}>
+        <span
+          className={styles.Sidebar__Icon}
+          onClick={handleChangeOpenSidebar}
+        >
+          <Icon name="close" />
+        </span>
+        <h1 className={styles.Sidebar__Title}>Models</h1>
+        <LinksMenu direction="column" items={LINK_ITEMS} />
+      </div>
+      <div className={cn(styles.Sidebar__Footer)}>
+        <div>
+          <Copyright />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+Sidebar.defaultProps = {
+  open: false,
 }

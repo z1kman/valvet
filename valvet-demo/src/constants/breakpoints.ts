@@ -1,0 +1,8 @@
+const BREAKPOINTS = {
+  MOBILE_FROM: 0,
+  MOBILE_TO: 700,
+  TAB_FROM: 700,
+  TAB_TO: 1020,
+}
+
+export { BREAKPOINTS }

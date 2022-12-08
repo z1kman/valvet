@@ -5,10 +5,11 @@
   top: 0;
   left: 0;
   height: $headerHeight;
-  width: calc(100% - 40px);
+  width: 100%;
   display: flex;
   padding: 0 20px;
   align-items: flex-end;
+  box-sizing: border-box;
 
   &_display_false {
     display: none;
@@ -17,7 +18,8 @@
 
 .Header__Items {
   display: flex;
-  width: calc(100% - 40px);
+  box-sizing: border-box;
+  width: 100%;
   justify-content: space-between;
 }
 
