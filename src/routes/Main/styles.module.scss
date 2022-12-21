@@ -1,0 +1,22 @@
+@import '../../scss/variables.scss';
+
+.Main {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.Main__Item {
+  display: flex;
+  width: 30%;
+  padding-bottom: 40px;
+}
+
+@media screen and (max-width: $screenWidthTabMax) {
+  .Main__Item {
+    width: 50%;
+
+
+  }
+}

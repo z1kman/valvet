@@ -1,0 +1,25 @@
+@import '../../scss/variables.scss';
+
+.Layout {
+  display: flex;
+  flex-flow: column;
+  padding-top: $headerHeight;
+  padding-left: $sidebarMaxWidth;
+  width: calc(100% - $sidebarMaxWidth);
+}
+
+.Layout__Content {
+  padding-top: 90px;
+  width: 100%;
+}
+
+@media screen and (max-width: $screenWidthTabMax) {
+  .Layout {
+    padding: $headerHeight 20px 0;
+    width: calc(100% - 40px);
+  }
+
+  .Layout__Content {
+    padding-top: 0;
+  }
+}

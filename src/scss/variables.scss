@@ -1,0 +1,30 @@
+// Colors
+$primaryTextColor: #1a1a1a;
+$secondaryTextColor: #b3b3b3;
+
+// Font-Sizes
+$fontSizeS: 12px;
+$fontSizeM: 14px;
+$fontSizeL: 16px;
+$fontSizeXL: 22px;
+$fontSizeXXL: 42px;
+
+// Screen sizes
+$screenWidthMobMin: 0px;
+$screenWidthMobMax: 700px;
+$screenWidthTabMin: 700px;
+$screenWidthTabMax: 1020px;
+
+// Ui layout sizes
+$headerHeight: 90px;
+$sidebarWidthPercent: 60%;
+$sidebarMaxWidth: 350px;
+
+// Z-indexes
+$zIndexHeader: 10;
+$zIndexSidebar: 20;
+
+// Animation Duration
+$animationDurationSlow: 0.5s;
+$animationDurationMiddle: 0.4s;
+$animationDurationFast: 0.3s;

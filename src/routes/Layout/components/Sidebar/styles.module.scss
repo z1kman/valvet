@@ -1,0 +1,58 @@
+@import '../../../../scss/variables.scss';
+
+.Sidebar {
+  width: $sidebarWidthPercent;
+  position: fixed;
+  top: $headerHeight;
+  left: 0;
+  height: calc(100vh - $headerHeight);
+  box-sizing: border-box;
+  padding: 35px 20px;
+  transition: left $animationDurationMiddle ease;
+  max-width: $sidebarMaxWidth;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  z-index: $zIndexSidebar;
+}
+
+.Sidebar__Icon {
+  display: inline-block;
+  cursor: pointer;
+  display: none;
+}
+
+.Sidebar__Title {
+  padding-top: 20px;
+  font-size: $fontSizeXXL;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: $screenWidthTabMax) {
+  .Sidebar__Footer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $screenWidthTabMax) {
+  .Sidebar {
+    left: -100vw;
+    height: 100vh;
+    min-width: 300px;
+    top: 0;
+    max-width: 100%;
+    background: rgba(247, 247, 247, 0.499);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    &_show {
+      left: 0;
+    }
+  }
+
+  .Sidebar__Icon {
+    display: inline-block;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+  }
+}
