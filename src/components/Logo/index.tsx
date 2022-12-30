@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import velvetSvg from '../../svg/velvet.svg'
-import managementSvg from '../../svg/management.svg'
+import velvetSvg from '../../static/svg/velvet.svg'
+import managementSvg from '../../static/svg/management.svg'
 
 export const Logo: React.FC = () => {
   return (

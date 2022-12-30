@@ -14,23 +14,32 @@ export const Card: FC<Props> = (props) => {
   const { imgSrc, firstName, lastName } = props
 
   const [isImageLoaded, setIsImageLoaded] = useState(false)
+  const [srcNamedExport, setSrcNamedExport] = useState('#')
 
   useEffect(() => {
-    const image = new Image()
-    image.onload = () => setIsImageLoaded(true)
-    image.src = imgSrc
-
-    console.log(imgSrc)
-    return () => {
-      image.onload = null
+    async function importIcon (): Promise<any> {
+      try {
+        const { default: namedImport } = await import(
+          `../../static/pic/${imgSrc}`
+        )
+        const image = new Image()
+        image.onload = () => setIsImageLoaded(true)
+        image.src = namedImport
+        setSrcNamedExport(namedImport)
+      } catch (e) {
+        console.error(e)
+      }
     }
+    importIcon().catch(console.error)
   }, [imgSrc])
 
   return (
     <div>
       <Skeleton loading={!isImageLoaded}>
         <div className={styles.Card__Image}>
-          <img src={imgSrc} alt={`${firstName} ${lastName}`} />
+          {srcNamedExport !== '#' && (
+            <img src={srcNamedExport} alt={`${firstName} ${lastName}`} />
+          )}
         </div>
       </Skeleton>
       <div className={styles.Card__Info}>

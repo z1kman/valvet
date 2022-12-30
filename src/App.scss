@@ -12,6 +12,13 @@ body {
   padding: 0;
   width: 100%;
   font-family: 'Gotham Pro';
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  position: relative;
+  max-width: 1260px;
 }
 
 p {

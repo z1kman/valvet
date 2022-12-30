@@ -24,21 +24,23 @@ const LINK_ITEMS = [
 export const Sidebar: FC<Props> = (props) => {
   const { handleChangeOpenSidebar, open } = props
   return (
-    <aside className={cn(styles.Sidebar, { [styles.Sidebar_show]: open })}>
-      <div className={styles.Sidebar__Content}>
-        <span
-          className={styles.Sidebar__Icon}
-          onClick={handleChangeOpenSidebar}
-        >
-          <Icon name="close" />
-        </span>
-        <h1 className={styles.Sidebar__Title}>Models</h1>
-        <LinksMenu direction="column" items={LINK_ITEMS} />
-      </div>
-      <div className={cn(styles.Sidebar__Footer)}>
-        <Copyright />
-      </div>
-    </aside>
+    <div className={styles.Sidebar__Wrapper}>
+      <aside className={cn(styles.Sidebar, { [styles.Sidebar_show]: open })}>
+        <div className={styles.Sidebar__Content}>
+          <span
+            className={styles.Sidebar__Icon}
+            onClick={handleChangeOpenSidebar}
+          >
+            <Icon name="close" />
+          </span>
+          <h1 className={styles.Sidebar__Title}>Models</h1>
+          <LinksMenu direction="column" items={LINK_ITEMS} />
+        </div>
+        <div className={cn(styles.Sidebar__Footer)}>
+          <Copyright />
+        </div>
+      </aside>
+    </div>
   )
 }
 

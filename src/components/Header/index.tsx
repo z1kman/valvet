@@ -15,19 +15,21 @@ export const Header: React.FC<Props> = (props) => {
 
   return (
     <header className={styles.Header}>
-      <div className={styles.Header__Items}>
-        <div className={styles.Header__Item_link}>
-          <Link label="back" color="secondary" italic size="s" />
+      <div className={styles.Header__Content}>
+        <div className={styles.Header__Items}>
+          <div className={styles.Header__Item_link}>
+            <Link label="back" color="secondary" italic size="s" />
+          </div>
+          <div className={styles.Header__Item_icon} onClick={onClickBurger}>
+            <Icon name="menu" />
+          </div>
+          <Logo />
         </div>
-        <div className={styles.Header__Item_icon} onClick={onClickBurger}>
-          <Icon name="menu" />
-        </div>
-        <Logo />
       </div>
     </header>
   )
 }
 
 Header.defaultProps = {
-  onClickBurger: () => {}
+  onClickBurger: () => {},
 }

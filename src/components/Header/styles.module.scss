@@ -1,12 +1,19 @@
 @import '../../scss/variables.scss';
 
 .Header {
-  position: fixed;
-  top: 0;
   left: 0;
+  top: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.Header__Content {
   height: $headerHeight;
   width: 100%;
   display: flex;
+  max-width: $maxSizeLayout;
   padding: 0 20px;
   align-items: flex-end;
   box-sizing: border-box;
