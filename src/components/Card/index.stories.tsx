@@ -1,8 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import documentation from "./documentation.mdx";
 
-import img from '../../content/pic/Rectangle18.jpg'
-
 import { Card } from "./index";
 
 export default {
@@ -20,7 +18,7 @@ const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  imgSrc: img,
+  imgSrc: 'Rectangle18.jpg',
   firstName: 'Alina',
   lastName: 'Bevoch'
 };
