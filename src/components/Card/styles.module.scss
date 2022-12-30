@@ -1,8 +1,7 @@
-@import "../../scss/variables.scss";
+@import '../../scss/variables.scss';
 
 .Card__Image {
-  width: 255px;
-  height: 365px;
+  width: 100%;
 
   img {
     width: 100%;
@@ -21,8 +20,38 @@
   display: inline-block;
   font-style: italic;
   text-transform: uppercase;
-  
+
   &:nth-child(1) {
-    font-family: "Gotham Pro Medium Italic";
+    font-family: 'Gotham Pro Medium Italic';
   }
 }
+
+@media screen and (min-width: 1335px ) {
+  .Card__Image {
+    min-height: 467px;
+    min-width: 325px;
+  }
+}
+
+@media screen and (min-width: $screenWidthTabMax ) and (max-width: 1335px) {
+  .Card__Image {
+    min-height: 330px;
+    min-width: 230px;
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: $screenWidthTabMax) {
+  .Card__Image {
+    min-height: 550px;
+    min-width: 385px;
+  }
+}
+
+@media screen and (min-width: $screenWidthMobMin) and (max-width: 425px) {
+  .Card__Image {
+    min-height: 370px;
+    min-width: 260px;
+  }
+}
+
+

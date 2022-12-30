@@ -8,6 +8,9 @@ import { Sidebar } from './components/Sidebar'
 // Constants
 import { BREAKPOINTS } from '../../constants/breakpoints'
 
+// Containers
+import { OutsideClickWrapper } from 'containers/OutsideClickWrapper'
+
 interface Props {
   children?: ReactNode
 }
@@ -35,14 +38,25 @@ export const Layout: FC<Props> = ({ children }) => {
     setOpenSidebar((prevState) => !prevState)
   }
 
+  const handleOutsideSidebarClick = (): void => {
+    setOpenSidebar(false)
+  }
+
   return (
     <div className={styles.Layout}>
       <Header onClickBurger={handleChangeOpenSidebar} />
-      <Sidebar
-        open={openSidebar}
-        handleChangeOpenSidebar={handleChangeOpenSidebar}
-      />
-      <div className={styles.Layout__Content}>{children}</div>
+
+      <div className={styles.Layout__WrapperContent}>
+        <OutsideClickWrapper onOutsideClick={handleOutsideSidebarClick}>
+          <div>
+            <Sidebar
+              open={openSidebar}
+              handleChangeOpenSidebar={handleChangeOpenSidebar}
+            />
+          </div>
+        </OutsideClickWrapper>
+        <div className={styles.Layout__Content}>{children}</div>
+      </div>
     </div>
   )
 }

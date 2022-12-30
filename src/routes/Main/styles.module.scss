@@ -14,9 +14,21 @@
 }
 
 @media screen and (max-width: $screenWidthTabMax) {
+  .Main {
+    justify-content: space-around;
+  }
   .Main__Item {
-    width: 50%;
+    width: auto;
+  }
+}
 
-
+@media screen and (min-width: 810px) and (max-width: $screenWidthTabMax) {
+  .Main__Item {
+    &:nth-child(1n) {
+      padding-right: 5px;
+    }
+    &:nth-child(2n) {
+      padding-left: 5px;
+    }
   }
 }

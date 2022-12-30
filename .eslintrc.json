@@ -27,6 +27,7 @@
   "rules": {
     "comma-dangle": "off",
     "multiline-ternary": "off",
+    "react-hooks/exhaustive-deps": "off",
     "@typescript-eslint/comma-dangle": "off"
   }
 }

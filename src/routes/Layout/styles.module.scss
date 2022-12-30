@@ -4,12 +4,16 @@
   display: flex;
   flex-flow: column;
   padding-top: $headerHeight;
-  padding-left: $sidebarMaxWidth;
-  width: calc(100% - $sidebarMaxWidth);
+  width: 100%;
+}
+
+.Layout__WrapperContent {
+  display: flex;
 }
 
 .Layout__Content {
   padding-top: 90px;
+  padding-right: 20px;
   width: 100%;
 }
 
@@ -20,6 +24,6 @@
   }
 
   .Layout__Content {
-    padding-top: 0;
+    padding: 0;
   }
 }

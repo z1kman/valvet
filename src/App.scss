@@ -1,3 +1,6 @@
+
+@import './scss/variables.scss';
+
 @font-face {
   font-family: 'Gotham Pro';
   src: url(../public/fonts/GothamPro.ttf);
@@ -18,7 +21,7 @@ body {
 
 #root {
   position: relative;
-  max-width: 1260px;
+  max-width: $maxSizeLayout;
 }
 
 p {

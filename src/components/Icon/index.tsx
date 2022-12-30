@@ -18,7 +18,7 @@ export const Icon: FC<Props> = ({ name }) => {
     async function importIcon (): Promise<any> {
       try {
         const { default: namedImport } = await import(
-          `../../svg/icons/${name}.svg`
+          `../../static/svg/icons/${name}.svg`
         )
         ImportedIconRef.current = namedImport
       } finally {
