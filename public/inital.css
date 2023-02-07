@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Gotham Pro';
+  src: local("GothamPro"), url(./fonts/GothamPro.ttf);
+}
+
+@font-face {
+  font-family: 'Gotham Pro Medium Italic';
+  src: local("GothamProMediumItalic"), url(./fonts/GothamProMediumItalic.ttf);
+}
+
+body {
+  font-family: 'Gotham Pro';
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Gotham Pro Medium Italic';
+  font-weight: 400;
+}

@@ -1,34 +1,35 @@
 @import '../../scss/variables.scss';
 
 .Main {
-  display: flex;
   width: 100%;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat( 3, minmax(210px, 1fr) );
+  grid-column-gap: 5px;
+  grid-row-gap: 40px;
+  transition: grid-column-gap $animationDurationFast;
 }
 
 .Main__Item {
-  display: flex;
-  width: 30%;
-  padding-bottom: 40px;
+  height: 100%;
+  width: 100%;
 }
 
-@media screen and (max-width: $screenWidthTabMax) {
+@media screen and (min-width: $screenWidthMobMax) and (max-width: $screenWidthTabMax) {
   .Main {
-    justify-content: space-around;
-  }
-  .Main__Item {
-    width: auto;
+    width: 100%;
+    display: grid;
+    grid-column-gap: 5%;
+    grid-template-columns: repeat( 2, minmax(110px, 1fr) );
+    justify-content: space-between;
   }
 }
 
-@media screen and (min-width: 810px) and (max-width: $screenWidthTabMax) {
-  .Main__Item {
-    &:nth-child(1n) {
-      padding-right: 5px;
-    }
-    &:nth-child(2n) {
-      padding-left: 5px;
-    }
+@media screen and (max-width: $screenWidthMobMax) {
+  .Main {
+    width: 100%;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: repeat( 2, minmax(110px, 1fr) );
+    justify-content: space-between;
   }
 }

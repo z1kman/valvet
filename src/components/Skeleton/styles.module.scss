@@ -8,9 +8,9 @@
     #dedede,
   );
   background-size: 400% 400%;
+  border-radius: 2px;
   animation: gradient 1.5s ease infinite;
-  width: 0px;
-  height: 0px;
+  width: 100%;
 }
 
 .Skeleton__Wrapper {

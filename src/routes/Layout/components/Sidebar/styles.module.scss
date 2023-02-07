@@ -2,9 +2,8 @@
 
 .Sidebar {
   width: $sidebarWidthPercent;
-  position: sticky;
+  position: fixed;
   top: $headerHeight;
-  left: 0;
   height: calc(100vh - $headerHeight);
   box-sizing: border-box;
   padding: 35px 20px;
@@ -28,7 +27,6 @@
   font-size: $fontSizeXXL;
   text-transform: uppercase;
 }
-
 
 @media screen and (min-width: $screenWidthTabMax) {
   .Sidebar__Footer {

@@ -1,20 +1,10 @@
 
 @import './scss/variables.scss';
 
-@font-face {
-  font-family: 'Gotham Pro';
-  src: url(../public/fonts/GothamPro.ttf);
-}
-@font-face {
-  font-family: 'Gotham Pro Medium Italic';
-  src: url(../public/fonts/GothamProMediumItalic.ttf);
-}
-
 body {
   margin: 0;
   padding: 0;
   width: 100%;
-  font-family: 'Gotham Pro';
   display: flex;
   justify-content: center;
 }
@@ -27,9 +17,4 @@ body {
 p {
   padding: 0;
   margin: 0;
-}
-
-h1, h2, h3 {
-  font-family: 'Gotham Pro Medium Italic';
-  font-weight: 400;
 }

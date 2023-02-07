@@ -34,7 +34,7 @@ export const Card: FC<Props> = (props) => {
   }, [imgSrc])
 
   return (
-    <div>
+    <div className={styles.Card}>
       <Skeleton loading={!isImageLoaded}>
         <div className={styles.Card__Image}>
           {srcNamedExport !== '#' && (

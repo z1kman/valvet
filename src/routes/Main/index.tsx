@@ -11,7 +11,7 @@ import { MODELS } from '../../constants/data'
 export const Main: FC = () => {
   return (
     <Layout>
-      <div className={styles.Main}>
+      <main className={styles.Main}>
         {MODELS.map((model) => (
           <div
             key={model.firstName + '_' + model.lastName}
@@ -24,7 +24,7 @@ export const Main: FC = () => {
             />
           </div>
         ))}
-      </div>
+      </main>
     </Layout>
   )
 }

@@ -48,12 +48,10 @@ export const Layout: FC<Props> = ({ children }) => {
 
       <div className={styles.Layout__WrapperContent}>
         <OutsideClickWrapper onOutsideClick={handleOutsideSidebarClick}>
-          <div>
-            <Sidebar
-              open={openSidebar}
-              handleChangeOpenSidebar={handleChangeOpenSidebar}
-            />
-          </div>
+          <Sidebar
+            open={openSidebar}
+            handleChangeOpenSidebar={handleChangeOpenSidebar}
+          />
         </OutsideClickWrapper>
         <div className={styles.Layout__Content}>{children}</div>
       </div>
