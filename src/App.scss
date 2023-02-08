@@ -1,5 +1,10 @@
-
 @import './scss/variables.scss';
+
+html {
+  width: fill-available;
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
 
 body {
   margin: 0;
@@ -7,6 +12,9 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  width: fill-available;
+  width: -webkit-fill-available;
+  width: -moz-available;
 }
 
 #root {
