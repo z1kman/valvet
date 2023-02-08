@@ -4,7 +4,6 @@
   display: flex;
   flex-flow: column;
   padding-top: $headerHeight;
-  width: 100%;
 }
 
 .Layout__WrapperContent {
@@ -12,6 +11,7 @@
 }
 
 .Layout__Content {
+  width: calc(100vw - $sidebarMaxWidth);
   padding-top: 90px;
   margin-right: 20px;
   margin-left: $sidebarMaxWidth;
