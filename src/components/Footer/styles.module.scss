@@ -1,0 +1,69 @@
+@import '../../scss/variables.scss';
+
+.Header {
+  left: 0;
+  top: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.Header__Content {
+  height: $headerHeight;
+  width: 100%;
+  display: flex;
+  max-width: $maxSizeLayout;
+  padding: 0 20px;
+  align-items: flex-end;
+  box-sizing: border-box;
+  z-index: $zIndexHeader;
+
+  &_display_false {
+    display: none;
+  }
+}
+
+.Header__Items {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.Header__Item {
+  &_icon {
+    cursor: pointer;
+    display: none;
+    user-select: none;
+
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+    -ms-user-select: none;
+    -moz-user-select: none;
+  }
+}
+
+@media screen and (max-width: $screenWidthTabMax) {
+  .Header {
+    align-items: center;
+  }
+
+  .Header__Content {
+    align-items: center;
+  }
+
+  .Header__Items {
+    align-items: center;
+  }
+
+  .Header__Item {
+    &_link {
+      display: none;
+    }
+    &_icon {
+      display: block;
+    }
+  }
+}
