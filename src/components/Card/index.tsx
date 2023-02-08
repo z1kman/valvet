@@ -13,22 +13,22 @@ interface Props {
 export const Card: FC<Props> = (props) => {
   const { imgSrc, firstName, lastName } = props
 
-  const [isImageLoaded] = useState(false)
-  const [srcNamedExport] = useState('#')
+  const [isImageLoaded, setIsImageLoaded] = useState(false)
+  const [srcNamedExport, setSrcNamedExport] = useState('#')
 
   useEffect(() => {
     async function importIcon (): Promise<any> {
-      // try {
-      //   const { default: namedImport } = await import(
-      //     `../../static/pic/${imgSrc}`
-      //   )
-      //   const image = new Image()
-      //   image.onload = () => setIsImageLoaded(true)
-      //   image.src = namedImport
-      //   setSrcNamedExport(namedImport)
-      // } catch (e) {
-      //   console.error(e)
-      // }
+      try {
+        const { default: namedImport } = await import(
+          `../../static/pic/${imgSrc}`
+        )
+        const image = new Image()
+        image.onload = () => setIsImageLoaded(true)
+        image.src = namedImport
+        setSrcNamedExport(namedImport)
+      } catch (e) {
+        console.error(e)
+      }
     }
     importIcon().catch(console.error)
   }, [imgSrc])
