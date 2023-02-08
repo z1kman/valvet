@@ -38,16 +38,15 @@
   .Sidebar {
     position: fixed;
     left: -100vw;
-    height: 100%;
+    height: 101%;
     min-width: 300px;
     opacity: 0;
     top: 0px;
-    bottom: 0px;
-    
+    bottom: 0;
+
     background: rgba(247, 247, 247, 0.499);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-
 
     &_show {
       opacity: 1;

@@ -48,6 +48,7 @@
 @media screen and (max-width: $screenWidthTabMax) {
   .Header {
     align-items: center;
+    background-color: $primaryBgColor;
   }
 
   .Header__Content {
