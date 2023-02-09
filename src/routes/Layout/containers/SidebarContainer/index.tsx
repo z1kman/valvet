@@ -11,7 +11,6 @@ export const SidebarContainer: FC<SidebarProps> = (props) => {
       '--sidebar-wrapper-height',
       `${window.innerHeight}px`
     )
-    console.log(document.documentElement.clientHeight)
   }
 
   useEffect(() => {
