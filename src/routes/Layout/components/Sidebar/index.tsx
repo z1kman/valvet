@@ -9,7 +9,7 @@ import { Copyright } from '../../../../components/Copyright'
 // Helpers
 import cn from 'classnames'
 
-interface Props {
+export interface Props {
   open: boolean
   handleChangeOpenSidebar: () => void
 }
@@ -25,18 +25,20 @@ export const Sidebar: FC<Props> = (props) => {
   const { open, handleChangeOpenSidebar } = props
   return (
     <aside className={cn(styles.Sidebar, { [styles.Sidebar_show]: open })}>
-      <div className={styles.Sidebar__Content}>
-        <span
-          className={styles.Sidebar__Icon}
-          onClick={handleChangeOpenSidebar}
-        >
-          <Icon name="close" />
-        </span>
-        <h1 className={styles.Sidebar__Title}>Models</h1>
-        <LinksMenu direction="column" items={LINK_ITEMS} />
-      </div>
-      <div className={cn(styles.Sidebar__Footer)}>
-        <Copyright />
+      <div className={cn(styles.Sidebar__Wrapper)}>
+        <section className={styles.Sidebar__Content}>
+          <span
+            className={styles.Sidebar__Icon}
+            onClick={handleChangeOpenSidebar}
+          >
+            <Icon name="close" />
+          </span>
+          <h1 className={styles.Sidebar__Title}>Models</h1>
+          <LinksMenu direction="column" items={LINK_ITEMS} />
+        </section>
+        <section className={cn(styles.Sidebar__Footer)}>
+          <Copyright />
+        </section>
       </div>
     </aside>
   )
