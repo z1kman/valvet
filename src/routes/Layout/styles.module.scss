@@ -1,10 +1,18 @@
 @import '../../scss/variables.scss';
 
 .Layout {
+  overflow: auto;
+  height: 100%;
+  width: 100vw;
   display: flex;
-  flex-flow: column;
+  justify-content: center;
+}
+
+.Layout__Wrapper {
+  max-width: $maxSizeLayout;
+  display: flex;
+  flex-direction: column;
   padding-top: $headerHeight;
-  width: 100%;
 }
 
 .Layout__WrapperContent {
@@ -12,14 +20,15 @@
 }
 
 .Layout__Content {
+  width: calc(100vw - $sidebarMaxWidth);
   padding-top: 90px;
-  margin-right: 20px;
+  padding-right: 20px;
   margin-left: $sidebarMaxWidth;
   box-sizing: border-box;
 }
 
 @media screen and (max-width: $screenWidthTabMax) {
-  .Layout {
+  .Layout__Wrapper {
     padding: $headerHeight 20px 0;
     width: calc(100vw - 40px);
   }

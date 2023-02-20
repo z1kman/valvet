@@ -1,6 +1,11 @@
-# Demo for Velvet Management (in progress)
+# Demo project
 
 You can see the application from the link: [Velvet-demo](https://velvet-demo.vercel.app/)
+
+## Stack
+* TypeScript
+* React
+* SCSS
 
 
 ## First launch of the project

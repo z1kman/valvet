@@ -3,7 +3,8 @@ import styles from './styles.module.scss'
 
 // Components
 import { Header } from '../../components/Header'
-import { Sidebar } from './components/Sidebar'
+import { SidebarContainer } from './containers/SidebarContainer'
+import { Footer } from 'components/Footer'
 
 // Constants
 import { BREAKPOINTS } from '../../constants/breakpoints'
@@ -44,16 +45,18 @@ export const Layout: FC<Props> = ({ children }) => {
 
   return (
     <div className={styles.Layout}>
+      <div className={styles.Layout__Wrapper}>
       <Header onClickBurger={handleChangeOpenSidebar} />
-
       <div className={styles.Layout__WrapperContent}>
         <OutsideClickWrapper onOutsideClick={handleOutsideSidebarClick}>
-          <Sidebar
+          <SidebarContainer
             open={openSidebar}
             handleChangeOpenSidebar={handleChangeOpenSidebar}
           />
         </OutsideClickWrapper>
         <div className={styles.Layout__Content}>{children}</div>
+      </div>
+      <Footer />
       </div>
     </div>
   )

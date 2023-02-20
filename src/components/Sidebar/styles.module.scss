@@ -1,19 +1,25 @@
-@import '../../../../scss/variables.scss';
+@import '../../scss/variables.scss';
 
 .Sidebar {
   width: $sidebarWidthPercent;
   position: fixed;
   top: $headerHeight;
   height: calc(100vh - $headerHeight);
-  box-sizing: border-box;
-  padding: 35px 20px;
   transition: left $animationDurationMiddle ease,
     opacity $animationDurationFast ease;
   max-width: $sidebarMaxWidth;
+  z-index: $zIndexSidebar;
+}
+
+.Sidebar__Wrapper {
+  box-sizing: border-box;
+  padding: 35px 20px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  z-index: $zIndexSidebar;
+
+  transition: height $animationDurationFast;
 }
 
 .Sidebar__Icon {
@@ -35,14 +41,19 @@
 }
 
 @media screen and (max-width: $screenWidthTabMax) {
+  .Sidebar__Wrapper {
+    height: var(--sidebar-wrapper-height);
+  }
+
   .Sidebar {
     position: fixed;
     left: -100vw;
-    height: 100vh;
+    height: calc(100vh + 1px);
     min-width: 300px;
     opacity: 0;
     top: 0;
-    max-width: 100%;
+    max-width: $sidebarWidthPercent;
+
     background: rgba(247, 247, 247, 0.499);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
