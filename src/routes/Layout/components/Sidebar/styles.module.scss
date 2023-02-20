@@ -48,12 +48,10 @@
   .Sidebar {
     position: fixed;
     left: -100vw;
-    height: 100vh;
+    height: calc(100vh + 1px);
     min-width: 300px;
     opacity: 0;
-    top: 0px;
-    bottom: 0;
-    margin-top: 1px;
+    top: 0;
 
     background: rgba(247, 247, 247, 0.499);
     backdrop-filter: blur(14px);

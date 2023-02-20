@@ -45,8 +45,8 @@ export const Layout: FC<Props> = ({ children }) => {
 
   return (
     <div className={styles.Layout}>
+      <div className={styles.Layout__Wrapper}>
       <Header onClickBurger={handleChangeOpenSidebar} />
-
       <div className={styles.Layout__WrapperContent}>
         <OutsideClickWrapper onOutsideClick={handleOutsideSidebarClick}>
           <SidebarContainer
@@ -57,6 +57,7 @@ export const Layout: FC<Props> = ({ children }) => {
         <div className={styles.Layout__Content}>{children}</div>
       </div>
       <Footer />
+      </div>
     </div>
   )
 }

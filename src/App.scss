@@ -17,6 +17,8 @@ body {
 #root {
   position: relative;
   max-width: $maxSizeLayout;
+  overflow: hidden;
+  height: 100vh;
 }
 
 p {
