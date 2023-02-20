@@ -10,8 +10,7 @@ export default {
     docs: {
       page: documentation,
     },
-  },
-  args: { ...Footer.defaultProps },
+  }
 } as ComponentMeta<typeof Footer>
 
 export const Default: ComponentStory<typeof Footer> = () => (

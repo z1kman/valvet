@@ -13,7 +13,7 @@
 .Layout__Content {
   width: calc(100vw - $sidebarMaxWidth);
   padding-top: 90px;
-  margin-right: 20px;
+  padding-right: 20px;
   margin-left: $sidebarMaxWidth;
   box-sizing: border-box;
 }
