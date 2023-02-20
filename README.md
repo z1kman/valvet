@@ -1,6 +1,7 @@
 # Demo project
 
-You can see the application from the link: [Velvet-demo](https://velvet-demo.vercel.app/)
+* You can see the application from the link: [Velvet-demo](https://velvet-demo.vercel.app/)
+* You can see the storybook from the link: [Chromatic](https://63f3ad4f13412f50a82b7b96-lhzfgjbhqj.chromatic.com/)
 
 ## Stack
 * TypeScript
