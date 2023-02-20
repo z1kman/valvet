@@ -2,9 +2,9 @@ import React, { FC } from 'react'
 import styles from './styles.module.scss'
 
 // Components
-import { Icon } from '../../../../components/Icon'
-import { LinksMenu, ItemType } from '../../../../components/LinksMenu'
-import { Copyright } from '../../../../components/Copyright'
+import { Icon } from '../Icon'
+import { LinksMenu, ItemType } from '../LinksMenu'
+import { Copyright } from '../Copyright'
 
 // Helpers
 import cn from 'classnames'

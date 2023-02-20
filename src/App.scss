@@ -7,16 +7,11 @@ html {
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
   --sidebar-wrapper-height: 100%;
 }
 
 #root {
   position: relative;
-  max-width: $maxSizeLayout;
   overflow: hidden;
   height: 100vh;
 }

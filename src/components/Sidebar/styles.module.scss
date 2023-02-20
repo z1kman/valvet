@@ -1,4 +1,4 @@
-@import '../../../../scss/variables.scss';
+@import '../../scss/variables.scss';
 
 .Sidebar {
   width: $sidebarWidthPercent;
@@ -52,6 +52,7 @@
     min-width: 300px;
     opacity: 0;
     top: 0;
+    max-width: $sidebarWidthPercent;
 
     background: rgba(247, 247, 247, 0.499);
     backdrop-filter: blur(14px);

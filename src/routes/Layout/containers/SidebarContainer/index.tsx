@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react'
 
 // Components
-import { Sidebar, Props as SidebarProps } from '../../components/Sidebar'
+import { Sidebar, Props as SidebarProps } from '../../../../components/Sidebar'
 
 export const SidebarContainer: FC<SidebarProps> = (props) => {
   const { open } = props

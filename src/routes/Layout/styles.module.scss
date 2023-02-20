@@ -3,9 +3,13 @@
 .Layout {
   overflow: auto;
   height: 100%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 
 .Layout__Wrapper {
+  max-width: $maxSizeLayout;
   display: flex;
   flex-direction: column;
   padding-top: $headerHeight;
