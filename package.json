@@ -21,10 +21,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic --project-token=e6b98baebb8e"
   },
   "browserslist": {
     "production": [
@@ -51,6 +51,7 @@
     "@storybook/testing-library": "0.0.13",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "babel-plugin-named-exports-order": "0.0.2",
+    "chromatic": "^6.17.0",
     "eslint": "^8.28.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-plugin-import": "^2.26.0",
@@ -60,5 +61,6 @@
     "prop-types": "^15.8.1",
     "typescript": "^4.9.3",
     "webpack": "^5.75.0"
-  }
+  },
+  "_id": "valvet-demo@0.1.0"
 }
