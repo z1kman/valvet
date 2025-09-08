@@ -3,16 +3,32 @@
   become: yes
   vars:
     local_build_path: "{{ playbook_dir }}/build"
+    local_temp_build_path: "/tmp/build.tar.gz"
     server_build_path: "/home/{{ ansible_user }}/valvet-demo"
-    nginx_root: /var/www/html
+    server_temp_archive: "{{ server_build_path }}/build.tar.gz"
 
   tasks:
-    - name: Ensure server build path exists
-      file:
-        path: "{{ server_build_path }}"
-        state: directory
+    - name: Create archive from build
+      community.general.archive:
+        path: "{{ local_build_path }}"
+        dest: "{{ local_temp_build_path }}"
 
-    - name: Copy build to the server
+    - name: Copy archive to server
       copy:
-        src: "{{ local_build_path }}/"
-        dest: "{{ server_build_path }}/"
+        src: "{{ local_temp_build_path }}"
+        dest: "{{ server_temp_archive }}"
+
+    - name: Extract archive on server
+      unarchive:
+        src: "{{ server_temp_archive }}"
+        dest: "{{ server_build_path }}"
+        remote_src: yes
+
+    - name: Remove archive from runner
+      shell: rm -f "{{ local_temp_build_path }}"
+      delegate_to: localhost
+
+    - name: Remove archive from server
+      file:
+        path: "{{ server_temp_archive }}"
+        state: absent
