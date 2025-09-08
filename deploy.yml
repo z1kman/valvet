@@ -1,26 +1,15 @@
-- name: Deploy React Build Only
+- name: Show React build contents
   hosts: web1
   become: yes
-  gather_facts: yes
-
   vars:
-    react_build_path: ./build
-    deploy_path: /home/deploy/valvet
+    local_build_path: "{{ playbook_dir }}/build"
 
   tasks:
-    - name: Create directory
-      file:
-        path: "{{ deploy_path }}"
-        state: directory
-        owner: deploy
-        group: deploy
-        mode: '0755'
-
-    - name: Copy build
-      copy:
-        src: "{{ react_build_path }}/"
-        dest: "{{ deploy_path }}/"
-        owner: deploy
-        group: deploy
-        mode: '0755'
+    - name: List files in build folder
+      shell: ls -la "{{ local_build_path }}"
+      register: build_files
       delegate_to: localhost
+
+    - name: Show build folder contents
+      debug:
+        var: build_files.stdout_lines
