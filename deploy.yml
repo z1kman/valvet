@@ -8,9 +8,9 @@
     server_temp_archive: "{{ server_build_path }}/build.tar.gz"
 
   tasks:
-    - name: Create archive from build on runner
+    - name: Create archive from build contents on runner
       community.general.archive:
-        path: "{{ local_build_path }}"
+        path: "{{ local_build_path }}/*"
         dest: "{{ local_temp_build_path }}"
       delegate_to: localhost
 
@@ -32,7 +32,9 @@
         remote_src: yes
 
     - name: Remove archive from runner
-      shell: rm -f "{{ local_temp_build_path }}"
+      file:
+        path: "{{ local_temp_build_path }}"
+        state: absent
       delegate_to: localhost
 
     - name: Remove archive from server
