@@ -1,0 +1,26 @@
+- name: Deploy React Build Only
+  hosts: web1
+  become: yes
+  gather_facts: yes
+
+  vars:
+    react_build_path: ./build
+    deploy_path: /home/deploy/valvet
+
+  tasks:
+    - name: Create directory
+      file:
+        path: "{{ deploy_path }}"
+        state: directory
+        owner: deploy
+        group: deploy
+        mode: '0755'
+
+    - name: Copy build
+      copy:
+        src: "{{ react_build_path }}/"
+        dest: "{{ deploy_path }}/"
+        owner: deploy
+        group: deploy
+        mode: '0755'
+      delegate_to: localhost
