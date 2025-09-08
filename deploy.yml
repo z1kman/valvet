@@ -1,15 +1,18 @@
-- name: Show React build contents
+- name: Deploy build
   hosts: web1
   become: yes
   vars:
     local_build_path: "{{ playbook_dir }}/build"
+    server_build_path: "/home/{{ ansible_user }}/valvet-demo"
+    nginx_root: /var/www/html
 
   tasks:
-    - name: List files in build folder
-      shell: ls -la "{{ local_build_path }}"
-      register: build_files
-      delegate_to: localhost
+    - name: Ensure server build path exists
+      file:
+        path: "{{ server_build_path }}"
+        state: directory
 
-    - name: Show build folder contents
-      debug:
-        var: build_files.stdout_lines
+    - name: Copy build to the server
+      copy:
+        src: "{{ local_build_path }}/"
+        dest: "{{ server_build_path }}/"
