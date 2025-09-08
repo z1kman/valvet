@@ -8,11 +8,17 @@
     server_temp_archive: "{{ server_build_path }}/build.tar.gz"
 
   tasks:
-    - name: Create archive from build
+    - name: Create archive from build on runner
       community.general.archive:
         path: "{{ local_build_path }}"
         dest: "{{ local_temp_build_path }}"
       delegate_to: localhost
+
+    - name: Ensure server build path exists
+      file:
+        path: "{{ server_build_path }}"
+        state: directory
+        mode: "0755"
 
     - name: Copy archive to server
       copy:
