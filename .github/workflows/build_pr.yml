@@ -14,8 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Show SERVER_IP
-        run: echo "SERVER_IP is $SERVER_IP"
+      - name: Show inventory
+        run: cat inventory.yml
+
+      - name: Show deploy
+        run: cat deploy.yml
 
       - uses: webfactory/ssh-agent@v0.9.0
         with:
