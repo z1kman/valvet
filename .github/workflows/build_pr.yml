@@ -3,7 +3,7 @@ name: Build React on PR
 on:
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
