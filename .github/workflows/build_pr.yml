@@ -1,0 +1,42 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SERVER_IP: ${{ secrets.SERVER_IP }}
+      DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
+      CERTBOT_EMAIL: ${{ secrets.CERTBOT_EMAIL }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Build React app
+        run: |
+          npm install
+          npm run build
+
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add server to known_hosts
+        run: ssh-keyscan -H $SERVER_IP  >> ~/.ssh/known_hosts
+
+      - name: Run Ansible [Deploy build]
+        run: ansible-playbook -i ansible/inventory.yml ansible/playbook_deploy.yml
+
+      - name: Run Ansible [Configure Nginx]
+        run: ansible-playbook -i ansible/inventory.yml ansible/playbook_nginx.yml
