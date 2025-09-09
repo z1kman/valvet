@@ -35,12 +35,12 @@
           }
       when: not nginx_conf_stat.stat.exists
 
-    # - name: Enable site by symlink
-    #   file:
-    #     src: "/etc/nginx/sites-available/{{ domain_name }}"
-    #     dest: "/etc/nginx/sites-enabled/{{ domain_name }}"
-    #     state: link
-    #     force: yes
+    - name: Create symlink
+      file:
+        src: "/etc/nginx/sites-available/{{ domain_name }}"
+        dest: "/etc/nginx/sites-enabled/{{ domain_name }}"
+        state: link
+        force: yes
 
     - name: Restart Nginx
       service:
