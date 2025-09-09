@@ -28,6 +28,8 @@
                   try_files $uri /index.html;
               }
           }
+      args:
+        creates: "/etc/nginx/sites-available/{{ domain_name }}"
 
     - name: Enable site by symlink
       file:
