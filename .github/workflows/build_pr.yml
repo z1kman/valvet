@@ -1,4 +1,4 @@
-name: Minimal Deploy on PR
+name: Deploy
 
 on:
   pull_request:
@@ -34,4 +34,8 @@ jobs:
       - name: Add server to known_hosts
         run: ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
-      - run: ansible-playbook -i ansible/inventory.yml ansible/deploy.yml
+      - name: Run Ansible [Deploy build] 
+        run: ansible-playbook -i ansible/inventory.yml ansible/playbook_deploy.yml
+
+      - name: Run Ansible [Configure Nginx] 
+        run: ansible-playbook -i ansible/inventory.yml ansible/playbook_nginx.yml
