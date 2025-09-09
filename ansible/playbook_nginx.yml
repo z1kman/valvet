@@ -4,6 +4,7 @@
   vars:
     server_build_path: "/var/www/valvet-demo"
     email: "anton.shashkov.k@gmail.com"
+    domain_name: "valvet-demo.ashashkov.com"
 
   tasks:
     - name: Install Nginx
