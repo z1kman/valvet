@@ -6,6 +6,7 @@
     local_temp_build_path: "/tmp/build.tar.gz"
     server_build_path: "/home/{{ ansible_user }}/valvet-demo"
     server_temp_archive: "{{ server_build_path }}/build.tar.gz"
+    domain_name: "valvet-demo.ashashkov.com"
 
   tasks:
     - name: Create archive from build contents on runner
@@ -41,3 +42,36 @@
       file:
         path: "{{ server_temp_archive }}"
         state: absent
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Create Nginx config for site
+      copy:
+        dest: "/etc/nginx/sites-available/{{ domain_name }}"
+        content: |
+          server {
+              listen 80;
+              server_name {{ domain_name }};
+
+              root {{ server_build_path }};
+              index index.html;
+
+              location / {
+                  try_files $uri /index.html;
+              }
+          }
+
+    - name: Enable site by symlink
+      file:
+        src: "/etc/nginx/sites-available/{{ domain_name }}"
+        dest: "/etc/nginx/sites-enabled/{{ domain_name }}"
+        state: link
+        force: yes
+
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
