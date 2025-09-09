@@ -76,3 +76,14 @@
       service:
         name: nginx
         state: restarted
+
+    - name: Obtain SSL certificate via Certbot
+      command: >
+        certbot --nginx -n --agree-tos --redirect --email anton.shashkov.k@example.com -d {{ domain_name }}
+      args:
+        creates: "/etc/letsencrypt/live/{{ domain_name }}/fullchain.pem"
+
+    - name: Reload Nginx to apply SSL
+      service:
+        name: nginx
+        state: reloaded
