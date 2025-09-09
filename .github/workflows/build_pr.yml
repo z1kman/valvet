@@ -8,6 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      SERVER_IP: ${{ secrets.SERVER_IP }}
+      DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
+      CERTBOT_EMAIL: ${{ secrets.CERTBOT_EMAIL }}
 
     steps:
       - name: Checkout code
@@ -32,12 +36,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - name: Run Ansible [Deploy build]
-        env:
-          DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
         run: ansible-playbook -i ansible/inventory.yml ansible/playbook_deploy.yml
 
       - name: Run Ansible [Configure Nginx]
-        env:
-          CERTBOT_EMAIL: ${{ secrets.CERTBOT_EMAIL }}
-          DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
         run: ansible-playbook -i ansible/inventory.yml ansible/playbook_nginx.yml
