@@ -13,27 +13,27 @@
         state: present
         update_cache: yes
 
-      - name: Check if Nginx config exists
-        stat:
-          path: "/etc/nginx/sites-available/{{ domain_name }}"
-        register: nginx_conf_stat
+    - name: Check if Nginx config exists
+      stat:
+        path: "/etc/nginx/sites-available/{{ domain_name }}"
+      register: nginx_conf_stat
 
-      - name: Create Nginx config
-        copy:
-          dest: "/etc/nginx/sites-available/{{ domain_name }}"
-          content: |
-            server {
-                listen 80;
-                server_name {{ domain_name }};
+    - name: Create Nginx config
+      copy:
+        dest: "/etc/nginx/sites-available/{{ domain_name }}"
+        content: |
+          server {
+              listen 80;
+              server_name {{ domain_name }};
 
-                root {{ server_build_path }};
-                index index.html;
+              root {{ server_build_path }};
+              index index.html;
 
-                location / {
-                    try_files $uri /index.html;
-                }
-            }
-        when: not nginx_conf_stat.stat.exists
+              location / {
+                  try_files $uri /index.html;
+              }
+          }
+      when: not nginx_conf_stat.stat.exists
 
     # - name: Enable site by symlink
     #   file:
