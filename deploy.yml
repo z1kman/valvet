@@ -4,7 +4,7 @@
   vars:
     local_build_path: "{{ playbook_dir }}/build"
     local_temp_build_path: "/tmp/build.tar.gz"
-    server_build_path: "/home/{{ ansible_user }}/valvet-demo"
+    server_build_path: "/var/www/valvet-demo"
     server_temp_archive: "{{ server_build_path }}/build.tar.gz"
     domain_name: "valvet-demo.ashashkov.com"
 
