@@ -13,30 +13,34 @@
         state: present
         update_cache: yes
 
-    - name: Create Nginx config for site
-      copy:
-        dest: "/etc/nginx/sites-available/{{ domain_name }}"
-        content: |
-          server {
-              listen 80;
-              server_name {{ domain_name }};
+      - name: Check if Nginx config exists
+        stat:
+          path: "/etc/nginx/sites-available/{{ domain_name }}"
+        register: nginx_conf_stat
 
-              root {{ server_build_path }};
-              index index.html;
+      - name: Create Nginx config
+        copy:
+          dest: "/etc/nginx/sites-available/{{ domain_name }}"
+          content: |
+            server {
+                listen 80;
+                server_name {{ domain_name }};
 
-              location / {
-                  try_files $uri /index.html;
-              }
-          }
-      args:
-        creates: "/etc/nginx/sites-available/{{ domain_name }}"
+                root {{ server_build_path }};
+                index index.html;
 
-    - name: Enable site by symlink
-      file:
-        src: "/etc/nginx/sites-available/{{ domain_name }}"
-        dest: "/etc/nginx/sites-enabled/{{ domain_name }}"
-        state: link
-        force: yes
+                location / {
+                    try_files $uri /index.html;
+                }
+            }
+        when: not nginx_conf_stat.stat.exists
+
+    # - name: Enable site by symlink
+    #   file:
+    #     src: "/etc/nginx/sites-available/{{ domain_name }}"
+    #     dest: "/etc/nginx/sites-enabled/{{ domain_name }}"
+    #     state: link
+    #     force: yes
 
     - name: Restart Nginx
       service:
