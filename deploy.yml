@@ -42,6 +42,7 @@
       file:
         path: "{{ server_temp_archive }}"
         state: absent
+
     - name: Install Nginx
       apt:
         name: nginx
