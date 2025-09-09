@@ -2,9 +2,11 @@
   hosts: web1
   become: yes
   vars:
-    server_build_path: "/var/www/valvet-demo"
-    email: "anton.shashkov.k@gmail.com"
-    domain_name: "valvet-demo.ashashkov.com"
+    email: "{{ lookup('env','CERTBOT_EMAIL') }}"
+    domain_name: "{{ lookup('env','DOMAIN_NAME') }}"
+    server_build_path: "/var/www/{{ domain_name }}"
+    nginx_sites_available: "/etc/nginx/sites-available"
+    nginx_sites_enabled: "/etc/nginx/sites-enabled"
 
   tasks:
     - name: Install Nginx
@@ -15,12 +17,12 @@
 
     - name: Check if Nginx config exists
       stat:
-        path: "/etc/nginx/sites-available/{{ domain_name }}"
+        path: "{{ nginx_sites_available }}/{{ domain_name }}"
       register: nginx_conf_stat
 
     - name: Create Nginx config
       copy:
-        dest: "/etc/nginx/sites-available/{{ domain_name }}"
+        dest: "{{ nginx_sites_available }}/{{ domain_name }}"
         content: |
           server {
               listen 80;
@@ -37,8 +39,8 @@
 
     - name: Create symlink
       file:
-        src: "/etc/nginx/sites-available/{{ domain_name }}"
-        dest: "/etc/nginx/sites-enabled/{{ domain_name }}"
+        src: "{{ nginx_sites_available }}/{{ domain_name }}"
+        dest: "{{ nginx_sites_enabled }}/{{ domain_name }}"
         state: link
         force: yes
 
