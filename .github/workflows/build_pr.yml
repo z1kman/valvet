@@ -1,9 +1,10 @@
 name: Deploy
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened]
+
 
 concurrency:
   group: deploy-master

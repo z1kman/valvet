@@ -14,28 +14,24 @@
         name: nginx
         state: present
         update_cache: yes
+    
+    - name: Install Certbot
+      apt:
+        name: [certbot, python3-certbot-nginx]
+        state: present
+        update_cache: yes
 
     - name: Check if Nginx config exists
       stat:
         path: "{{ nginx_sites_available }}/{{ domain_name }}"
-      register: nginx_conf_stat
+      register: nginx_conf_exists
 
     - name: Create Nginx config
-      copy:
+      template: 
+        src: nginx.conf.j2
         dest: "{{ nginx_sites_available }}/{{ domain_name }}"
-        content: |
-          server {
-              listen 80;
-              server_name {{ domain_name }};
-
-              root {{ server_build_path }};
-              index index.html;
-
-              location / {
-                  try_files $uri /index.html;
-              }
-          }
-      when: not nginx_conf_stat.stat.exists
+      notify: Restart Nginx
+      when: not nginx_conf_exists.stat.exists
 
     - name: Create symlink
       file:
@@ -43,14 +39,21 @@
         dest: "{{ nginx_sites_enabled }}/{{ domain_name }}"
         state: link
         force: yes
+      notify: Restart Nginx
 
+    - name: Check if SSL certificate already exists
+      stat:
+        path: "/etc/letsencrypt/live/{{ domain_name }}/fullchain.pem"
+      register: ssl_cert_exists
+
+    - name: Obtain SSL certificate
+      command: >
+        certbot --nginx -n --agree-tos --redirect --email {{ email }} -d {{ domain_name }}
+      when: 
+        - not ssl_cert_exists.stat.exists
+
+  handlers:
     - name: Restart Nginx
       service:
         name: nginx
         state: restarted
-
-    - name: Obtain SSL certificate via Certbot
-      command: >
-        certbot --nginx -n --agree-tos --redirect --email {{ email }} -d {{ domain_name }}
-      args:
-        creates: "/etc/letsencrypt/live/{{ domain_name }}/fullchain.pem"
